@@ -1,3 +1,4 @@
+  require 'pry'
 class Triangle
  attr_accessor :side_one_length, :side_two_length, :side_three_length, :equilateral, :isosceles, :scalene
 
@@ -10,13 +11,13 @@ class Triangle
       @scalene = scalene
     end
     def kind
-    if side_one_length == side_two_length && side_one_length == side_three_length
-       equilateral
-    elsif side_one_length == side_two_length && side_one_length!= side_three_length
-       isosceles
-    elsif side_one_length != side_two_length && side_one_length != side_three_length
-       scalene
-    else 
+    if (@side_one_length == @side_two_length) && (@side_one_length == @side_three_length)
+        :equilateral
+    elsif (@side_one_length == @side_two_length) || (@side_one_length!= @side_three_length) || (@side_two_length == @side_three_length)
+       :isosceles
+    elsif
+       :scalene
+    else @side_one_length == 0
       begin
         raise TriangleError
       rescue TriangleError => error

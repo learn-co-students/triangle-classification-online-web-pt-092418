@@ -10,26 +10,28 @@ class Triangle
       @isosceles = isosceles
       @scalene = scalene
     end
-    def kind
+
+  
+      def kind
     if (@side_one_length == @side_two_length) && (@side_one_length == @side_three_length)
         :equilateral
-    elsif (@side_one_length == @side_two_length) || (@side_one_length!= @side_three_length) || (@side_two_length == @side_three_length)
+    elsif (@side_one_length == @side_two_length) || (@side_one_length == @side_three_length) || (@side_two_length == @side_three_length)
        :isosceles
-    elsif
+    else
        :scalene
-    else @side_one_length == 0
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
+    # else @side_one_length == 0
+    #   begin
+    #     raise TriangleError
+    #   rescue TriangleError => error
+    #     puts error.message
+    #   end
+    # end
       end
     end
-  end
   
-  
-    class TriangleError < StandardError
-      def message 
-        "This is triangle inequality"
-      end
-    end
+    # class TriangleError < StandardError
+    #   def message 
+    #     "This is triangle inequality"
+    #   end
+    # end
 end

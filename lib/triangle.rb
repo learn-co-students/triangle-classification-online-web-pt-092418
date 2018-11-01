@@ -10,11 +10,11 @@ class Triangle
       @scalene = scalene
     end
     def kind
-    if size_one_length == size_two_length == size_three_length
+    if side_one_length == side_two_length && size_one_length == side_three_length
       return equilateral
-    elsif side_one_length == size_two_length != side_three_length
+    elsif side_one_length == side_two_length && side_one_length!= side_three_length
       return isosceles
-    elsif side_one_length != side_two_length != side_three_length
+    elsif side_one_length != side_two_length && side_one_length != side_three_length
       return scalene
     else 
       begin
@@ -23,8 +23,11 @@ class Triangle
         puts error.message
       end
     end
-  class TriangleError < StandardError
-    def message 
+  
+  
+    class TriangleError < StandardError
+      def message 
+        "This is triangle inequality"
+       end
     end
-  end
 end

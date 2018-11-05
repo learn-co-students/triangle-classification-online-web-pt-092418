@@ -17,7 +17,7 @@ class Triangle
         :equilateral
     elsif (@side_one_length == @side_two_length) || (@side_one_length == @side_three_length) || (@side_two_length == @side_three_length)
        :isosceles
-    elsif ![@side_one_length, @side_two_length, @side_three_length].any? {|side| side < 1}
+    elsif ![@side_one_length, @side_two_length, @side_three_length].any? {|side| side != side}
        :scalene
     else
       begin
@@ -25,7 +25,7 @@ class Triangle
       rescue TriangleError => error
           puts error.message
         end
-    end
+      end
       end
   
   

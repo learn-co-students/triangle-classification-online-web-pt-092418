@@ -1,23 +1,19 @@
 class Triangle
-  attr_accessor :side1, :side2, :side3
+  attr_accessor :one, :two, :three
   def initialize(one,two,three)
-    @side1=one
-    @side2=two
-    @side3=three
+    @one=one
+    @two=two
+    @three=three
   end
   def kind
-    if side1 == side2 && side2 == side3
+    if one == 0 || two == 0 || three == 0 || one < 0 || two < 0 || three < 0 || one + two <= three || two + three <= one || one + three <= two 
+      raise TriangleError
+    elsif one == two && two == three
       :equilateral
-    elsif side1 == side2 && side2 != side3
+    elsif one != three && two == three || one == three && two != three || one == two && two != three
       :isosceles
-    elsif side1 != side2 && side2 != side3
+    elsif one != two && two != three
       :scalene
-    else
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
     end
   end
 
